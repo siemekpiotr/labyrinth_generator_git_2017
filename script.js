@@ -29,6 +29,7 @@ function initmatrix(x) {
 }
 
 async function mainfunc(){
+    document.getElementById("DLbutton").disabled = true;
     usrsize = document.getElementById("GETsize").value;
     initmatrix(usrsize);
     findrand();
@@ -43,6 +44,7 @@ async function mainfunc(){
         }
     }
     // console.log("jestem");
+    document.getElementById("DLbutton").disabled = false;
     usrsize++;
 }
 
@@ -237,3 +239,8 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function DLcanvas() { //downloand png image
+    var DLlink = document.getElementById('link');
+    DLlink.setAttribute('download', 'generated_labyrinth.png');
+    DLlink.setAttribute('href', c.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+}
