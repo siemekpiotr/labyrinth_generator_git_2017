@@ -33,11 +33,13 @@ function mainFunc(){
         makeLabirynth();
         //await sleep(1);
         if(makeLabirynth() == 0){
-            if(finishGeneration() == 0){ return 0; } //jak nie ma wincej klockow przerwij
+            if(finishGeneration() == 0){//stop if no more blocks
+                document.getElementById("DLbutton").disabled = false;
+                return 0;
+            }
             randLine();
         }
     }, 10);
-    document.getElementById("DLbutton").disabled = false;
 }
 
 function drawMatrix() {
